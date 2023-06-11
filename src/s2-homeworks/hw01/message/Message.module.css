@@ -1,7 +1,7 @@
 .message {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    align-items: flex-end;
+    margin: 10px;
 }
 
 .imageAndText {
