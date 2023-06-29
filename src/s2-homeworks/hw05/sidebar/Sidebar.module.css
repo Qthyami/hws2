@@ -11,14 +11,31 @@
 }
 
 .nav a {
+    color: #0059B2;
+    font-size: 22px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
 }
 
 .nav a:hover {
-    color:blue;
+    color: #58ACFF;
+    font-size: 22px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
 .nav a.active {
-    color: red;
+    color: #58ACFF;
+    font-size: 22px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 .close {
 }
