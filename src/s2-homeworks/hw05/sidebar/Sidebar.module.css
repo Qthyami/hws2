@@ -14,9 +14,11 @@
 }
 
 .nav a:hover {
+    color:blue;
 }
 
 .nav a.active {
+    color: red;
 }
 .close {
 }

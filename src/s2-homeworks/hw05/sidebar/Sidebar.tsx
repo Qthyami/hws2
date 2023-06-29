@@ -23,24 +23,31 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                 <nav id={'hw5-menu'} className={s.nav}><NavLink id={'hw5-pre-junior-link'}
                                                                 to={PATH.PRE_JUNIOR}
                                                                 onClick={handleClose}
-                                                                className={(isActive) => {
-
-                                                                    return isActive ? s.active : '';
+                                                                className={({isActive}) => {
+                                                                    console.log(isActive)
+                                                                    return isActive ?  s.active : undefined;
                                                                 }}
 
                 > Pre-junior
-                </NavLink> <NavLink id={'hw5-junior-link'}
+                </NavLink>
+
+                    <NavLink id={'hw5-junior-link'}
                                     to={PATH.JUNIOR}
                                     onClick={handleClose}
-                                    className={(isActive) => {
-
-                                        return isActive ? s.active : '';
+                                    className={({isActive}) => {
+                                      console.log(isActive)
+                                        return isActive ?  s.active : undefined;
                                     }}
                 > Junior
-                </NavLink> <NavLink id={'hw5-junior-plus-link'}
+                </NavLink>
+
+                    <NavLink id={'hw5-junior-plus-link'}
                                     to={PATH.JUNIOR_PLUS}
                                     onClick={handleClose}
-                                    className={(isActive) => isActive ? s.active : ""}
+                             className={({isActive}) => {
+                                 console.log(isActive)
+                                 return isActive ?  s.active : undefined;
+                             }}
                 > Junior Plus
                 </NavLink></nav>
             </aside>
