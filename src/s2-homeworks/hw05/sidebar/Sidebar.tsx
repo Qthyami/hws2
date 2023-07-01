@@ -20,36 +20,34 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                 <button className={s.close} onClick={handleClose}><img src={closeIcon}
                                                                        alt="close sidebar" id={'hw5-menu-close'}
                 /></button>
-                <nav id={'hw5-menu'} className={s.nav}><NavLink id={'hw5-pre-junior-link'}
-                                                                to={PATH.PRE_JUNIOR}
-                                                                onClick={handleClose}
-                                                                className={({isActive}) => {
-                                                                    console.log(isActive)
-                                                                    return isActive ?  s.active : undefined;
-                                                                }}
+                <nav id={'hw5-menu'} className={s.nav}>
+                    <NavLink
+                        id="hw5-pre-junior-link"
+                        to={PATH.PRE_JUNIOR}
+                        onClick={handleClose}
+                        className={`${s.navLink} ${window.location.pathname === PATH.PRE_JUNIOR ? s.active : ''}`}
+                    >
+                        Pre-junior
+                    </NavLink>
 
-                > Pre-junior
-                </NavLink>
+                    <NavLink
+                        id="hw5-junior-link"
+                        to={PATH.JUNIOR}
+                        onClick={handleClose}
+                        className={`${s.navLink} ${window.location.pathname === PATH.JUNIOR ? s.active : ''}`}
+                    >
+                        Junior
+                    </NavLink>
 
-                    <NavLink id={'hw5-junior-link'}
-                                    to={PATH.JUNIOR}
-                                    onClick={handleClose}
-                                    className={({isActive}) => {
-                                      console.log(isActive)
-                                        return isActive ?  s.active : undefined;
-                                    }}
-                > Junior
-                </NavLink>
-
-                    <NavLink id={'hw5-junior-plus-link'}
-                                    to={PATH.JUNIOR_PLUS}
-                                    onClick={handleClose}
-                             className={({isActive}) => {
-                                 console.log(isActive)
-                                 return isActive ?  s.active : undefined;
-                             }}
-                > Junior Plus
-                </NavLink></nav>
+                    <NavLink
+                        id="hw5-junior-plus-link"
+                        to={PATH.JUNIOR_PLUS}
+                        onClick={handleClose}
+                        className={`${s.navLink} ${window.location.pathname === PATH.JUNIOR_PLUS ? s.active : ''}`}
+                    >
+                        Junior Plus
+                    </NavLink>
+                </nav>
             </aside>
         </>)
 }
