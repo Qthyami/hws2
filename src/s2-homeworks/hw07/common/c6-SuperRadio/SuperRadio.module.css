@@ -1,4 +1,10 @@
 .radio {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .radio::before {
@@ -6,6 +12,7 @@
 
 
 .radio:checked::before {
+
 }
 
 .label {

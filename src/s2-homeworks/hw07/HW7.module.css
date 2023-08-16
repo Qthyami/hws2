@@ -1,2 +1,7 @@
 .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки с равной шириной */
+    grid-column-gap: 10px; /* Отступ между колонками */
+    align-items: center;
+    margin: 0 70px;
 }

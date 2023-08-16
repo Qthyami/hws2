@@ -1,13 +1,18 @@
 .select {
-    background-color:lightblue;
+    border-radius: 2px;
+    border: 1px solid #C2C2C2;
+    background: #FFF;
+    width: 180px;
+    height: 25px;
+    flex-shrink: 0;
 }
 
 .select:focus {
-    background-color:yellowgreen;
+    background: #FFF;
 
 }
 
 
 .option:hover {
-    background-color: red;
+
 }
