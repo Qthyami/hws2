@@ -4,7 +4,13 @@ import s from './HW8.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
-
+import TableContainer from '@mui/material/TableContainer'; // Импорт компонента TableContainer из MUI
+import Table from '@mui/material/Table'; // Импорт компонента Table из MUI
+import TableHead from '@mui/material/TableHead'; // Импорт компонента TableHead из MUI
+import TableRow from '@mui/material/TableRow'; // Импорт компонента TableRow из MUI
+import TableCell from '@mui/material/TableCell'; // Импорт компонента TableCell из MUI
+import TableBody from '@mui/material/TableBody';
+import {Paper} from "@mui/material";
 /*
 * 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
 * 2 - дописать компоненту User
@@ -61,6 +67,7 @@ const HW8 = () => {
                     <div className={s.buttonsContainer}>
                         <SuperButton
                             id={'hw8-button-up'}
+                            style={{margin:"10px"}}
                             onClick={sortUp}
                             xType={currentSort === 'up' ? '' : 'secondary'}
                         >
@@ -68,6 +75,7 @@ const HW8 = () => {
                         </SuperButton>
                         <SuperButton
                             id={'hw8-button-down'}
+                            style={{padding:"5px, 24px, 5px, 24px", gap:"10px", borderRadius:"3px"}}
                             onClick={sortDown}
                             xType={currentSort === 'down' ? '' : 'secondary'}
                         >
@@ -75,6 +83,7 @@ const HW8 = () => {
                         </SuperButton>
                         <SuperButton
                             id={'hw8-button-18'}
+                            style={{margin:"8x"}}
                             onClick={check18}
                             xType={currentSort === '18' ? '' : 'secondary'}
                         >
@@ -82,16 +91,17 @@ const HW8 = () => {
                         </SuperButton>
                     </div>
 
-                    <table id={'hw8-users'} className={s.users}>
-                        <thead className={s.thead}>
-                        <tr>
-                            <td className={s.nameCol}>Name</td>
-                            <td className={s.ageCol}>Age</td>
-                        </tr>
-                        </thead>
-
-                        <tbody>{finalPeople}</tbody>
-                    </table>
+                    <TableContainer component={Paper} className={s.container}>
+                        <Table id={'hw8-users'}sx={{width: 1/3, marginTop:"2%"}} className={s.users}>
+                            <TableHead className={s.thead} sx={{ typography: { fontWeight: 'bold ' } }}>
+                                <TableRow>
+                                    <TableCell className={s.nameCol}>Name</TableCell>
+                                    <TableCell className={s.ageCol}>Age</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>{finalPeople}</TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             </div>
         </div>

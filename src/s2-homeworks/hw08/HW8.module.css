@@ -1,23 +1,49 @@
 .item {
+
 }
 
 .item:last-of-type {
-}
 
+}
+#hw8-users .MuiTableHead-root {
+    font-weight: bold;
+}
 .users {
+
+margin-left: 4%;
 }
 
 .buttonsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
 .container {
 }
 
 .thead {
+    background: #E5E5E5;
+
+
+    font-family: 'Roboto';
+
+
+
+    color: #000000;
+
+
 }
 
 .nameCol {
+
+
+
 }
 
 .ageCol {
+
+    font-weight: bold !important;
+
 }
