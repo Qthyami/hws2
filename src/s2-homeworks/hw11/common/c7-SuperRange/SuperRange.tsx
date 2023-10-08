@@ -1,15 +1,15 @@
+// В компоненте SuperRange
 import React from 'react'
-import {Slider, SliderProps} from '@mui/material'
+import { Slider, SliderProps } from '@mui/material'
+import s from './HW11.module.css' // Импортируйте стили
 
-const SuperRange: React.FC<SliderProps> = (props) => {
+const SuperRange: React.FC<SliderProps> = React.memo((props) => {
     return (
         <Slider
-            sx={{ // стили для слайдера // пишет студент
-                
-            }}
-            {...props} // отдаём слайдеру пропсы если они есть (value например там внутри)
+            sx={{}}
+            {...props} // отдаём слайдеру пропсы
         />
     )
-}
+})
 
 export default SuperRange

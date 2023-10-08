@@ -13,15 +13,28 @@ type DefaultSelectPropsType = DetailedHTMLProps<
 type SuperSelectPropsType = DefaultSelectPropsType & {
     options?: any[]
     onChangeOption?: (option: number) => void
+
 }
 
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
+
     options,
     className,
     onChange,
     onChangeOption,
     ...restProps
 }) => {
+    // const selectStyles = {
+    //     light: {
+    //         background: 'lightblue',
+    //     },
+    //     blue: {
+    //         background: 'lightblue', // Измените на цвет для темы blue
+    //     },
+    //     dark: {
+    //         background: 'darkgray',
+    //     },
+    // };
     const mappedOptions: any[] = options
         ? options.map((o) => (
               <option
@@ -46,6 +59,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
     const finalSelectClassName = s.select + (className ? ' ' + className : '')
 
     return (
+
         <select
             className={finalSelectClassName}
             onChange={onChangeCallback}
