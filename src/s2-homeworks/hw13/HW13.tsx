@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -21,6 +21,7 @@ const HW13 = () => {
     const [image, setImage] = useState('')
 
 
+
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -37,46 +38,57 @@ const HW13 = () => {
 
             .then((res) => {
 
+
                 setCode(`Код ${res.status}!`)
                 setImage(success200)
-                setText(res.data.errorText + '\n' + res.data.info)
-                setInfo("")
+                setText(res.data.errorText)
+                setInfo(res.data.info)
+
 
 
             })
             .catch((e) => {
+
                 if (e.response.status) {
                     let errCode = e.response.status
-                      setCode(`Код ${errCode}!`);
+                      setCode(`Ошибка ${errCode}!`);
 
                     if (errCode===400){
                         setImage(error400)
 
-                        setText(`${e.response.data.errorText}  ${e.response.data.info}` )
-                        setInfo("")
+                        setText(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+
                     }
                     if (errCode===500){
                         setImage(error500)
-                        setText(`${e.response.data.errorText}  ${ e.response.data.info}` )
-                        setInfo("")
+                        setText(e.response.data.errorText)
+                        setInfo(e.response.data.info)
+
                      }
 
 
                 } else {
                     // Обработка других ошибок, которые не связаны с HTTP-статусами
-
-                    setText (`Erorr! ${e.message}\n ${e.name}`)
+                    setCode(`Error!`)
                     setImage(errorUnknown)
+                    setText (e.message)
+
+                    setInfo(e.name)
+
+
+
 
                 }
-                setInfo("")
+
             })
 
     }
-//
+
     return (
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
+            <hr style={{opacity:"20%"}}/>
 
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
@@ -84,7 +96,8 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        disabled={!!info}
+                        disabled={info === "...loading"}
+                        style={{marginRight:"24px"}}
                         // дописать
 
                     >
@@ -94,7 +107,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        disabled={!!info}
+                        disabled={info === "...loading"}
+                        style={{marginRight:"24px"}}
                         // дописать
 
                     >
@@ -104,7 +118,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        disabled={!!info}
+                        disabled={info === "...loading"}
+                        style={{marginRight:"24px"}}
                         // дописать
 
                     >
@@ -114,7 +129,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        disabled={!!info}
+                        disabled={info === "...loading"}
+                        style={{marginRight:"24px"}}
                         // дописать
 
                     >

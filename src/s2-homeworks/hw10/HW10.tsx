@@ -27,7 +27,7 @@ dispatch(loadingTC())
     return (
         <div id={'hw10'}>
             <div className={s2.hwTitle}>Homework #10</div>
-
+            <hr style={{opacity:"20%"}}/>
             <div className={s2.hw}>
                 {isLoading ? (
                     <div id={'hw10-loading'}>
@@ -42,6 +42,7 @@ dispatch(loadingTC())
                     </SuperButton>
                 )}
             </div>
+            <hr style={{opacity:"20%"}}/>
         </div>
     )
 }

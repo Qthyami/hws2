@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react'
+import React, {useEffect} from 'react'
 import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
@@ -42,6 +42,7 @@ const themeId = useSelector<AppStoreType>((state):number=>state.theme.themeId)
             <div id={'hw12-text'} className={s2.hwTitle}>
                 Homework #12
             </div>
+            <hr style={{opacity:"20%"}}/>
 
             <div className={s2.hw}>
                 <SuperSelect

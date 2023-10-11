@@ -1,22 +1,50 @@
 .buttonsContainer {
+
 }
 
 .responseContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колонки */
+    grid-template-areas: "image text";
+    max-width: 80%;
+    margin-top: 88px
 }
 
 .imageContainer {
+    grid-area: image;
+
 }
 
 .image {
 }
 
 .textContainer{
+    grid-area: text;
+
 }
 
 .code {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .text {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 .info {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
