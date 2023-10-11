@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -20,6 +20,7 @@ const HW13 = () => {
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
 
+
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -33,18 +34,46 @@ const HW13 = () => {
 
         axios
             .post(url, {success: x})
+
             .then((res) => {
-                setCode('Код 200!')
+
+                setCode(`Код ${res.status}!`)
                 setImage(success200)
-                // дописать
+                setText(res.data.errorText + '\n' + res.data.info)
+                setInfo("")
+
 
             })
             .catch((e) => {
-                // дописать
+                if (e.response.status) {
+                    let errCode = e.response.status
+                      setCode(`Код ${errCode}!`);
 
+                    if (errCode===400){
+                        setImage(error400)
+
+                        setText(`${e.response.data.errorText}  ${e.response.data.info}` )
+                        setInfo("")
+                    }
+                    if (errCode===500){
+                        setImage(error500)
+                        setText(`${e.response.data.errorText}  ${ e.response.data.info}` )
+                        setInfo("")
+                     }
+
+
+                } else {
+                    // Обработка других ошибок, которые не связаны с HTTP-статусами
+
+                    setText (`Erorr! ${e.message}\n ${e.name}`)
+                    setImage(errorUnknown)
+
+                }
+                setInfo("")
             })
-    }
 
+    }
+//
     return (
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
@@ -55,6 +84,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
 
                     >
@@ -64,6 +94,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
 
                     >
@@ -73,6 +104,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
 
                     >
@@ -82,6 +114,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
 
                     >
