@@ -1,7 +1,10 @@
 .tech {
-
 }
 
 .loading {
-
+    color: rgba(77, 77, 77, 1);
+    display: flex;
+     /* Используйте flex-end вместо right */
+    align-items: center; /* /* Подстройте значение bottom в зависимости от вашего дизайна */
+    margin-left: 22%;
 }
